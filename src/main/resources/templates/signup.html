@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container text-center">
+        <div>
+            <h1>User Registration</h1>
+        </div>
+        <div>
+            <form th:action="@{/registered}" method="post" style="max-width: 600px; margin: 0 auto" th:object="${user}">
+                <div class="m-3">
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">E-mail</label>
+                        <div class="col-8">
+                            <input type="email" class="form-control" th:field="*{email}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Password</label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" th:field="*{password}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">First Name</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{fName}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Last Name</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{lName}" required/>
+                        </div>
+                    </div>
+                    
+					<div class="form-group row">
+					    <label class="col-form-label col-4">Gender</label>
+					    <div class="col-8">
+					        <div class="form-check form-check-inline">
+					            <input class="form-check-input" type="radio" th:field="*{role}" id="sales" value="sales"/>
+					            <label class="form-check-label" for="male">Sales</label>
+					        </div>
+					        <div class="form-check form-check-inline">
+					            <input class="form-check-input" type="radio" th:field="*{role}" id="accountant" value="accountant"/>
+					            <label class="form-check-label" for="female">Accountant</label>
+					        </div>
+					        <div class="form-check form-check-inline">
+					            <input class="form-check-input" type="radio" th:field="*{role}" id="hr" value="hr"/>
+					            <label class="form-check-label" for="other">HR</label>
+					        </div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" th:field="*{role}" id="administration" value="administration"/>
+						      <label class="form-check-label" for="other">Administrator</label>
+					        </div>
+					    </div>
+					</div>
+					<div class="form-group row">
+	                   <div class="col-12">
+					         <button type="submit" class="btn btn-primary">Submit</button>
+		               </div>
+	            </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
